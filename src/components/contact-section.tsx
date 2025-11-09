@@ -43,7 +43,7 @@ export default function ContactSection() {
       <div className="grid md:grid-cols-2">
         <div className="p-6">
             <CardHeader className="p-0 mb-6">
-                <CardTitle className="text-2xl font-bold font-headline">Ponte en Contacto</CardTitle>
+                <CardTitle className="text-2xl font-bold font-headline uppercase">Ponte en Contacto</CardTitle>
                 <CardDescription>
                     ¿Tienes alguna pregunta o una petición de canción? ¡Escríbenos!
                 </CardDescription>
@@ -67,19 +67,19 @@ export default function ContactSection() {
             </Form>
         </div>
         <div className="p-6 bg-muted/50 md:rounded-r-lg border-l">
-            <h3 className="text-xl font-bold mb-4 font-headline">Información de Contacto</h3>
+            <h3 className="text-xl font-bold mb-4 font-headline uppercase">Información de Contacto</h3>
             <div className="space-y-4 text-sm">
-                <a href="mailto:dleon4@hotmail.com" className="flex items-center gap-3 group">
+                <a href="mailto:contacto@lamega.com" className="flex items-center gap-3 group">
                     <Mail className="h-5 w-5 text-primary" />
-                    <span className="text-foreground group-hover:text-primary transition-colors">dleon4@hotmail.com</span>
+                    <span className="text-foreground group-hover:text-primary transition-colors">contacto@lamega.com</span>
                 </a>
-                <a href="tel:829205606" className="flex items-center gap-3 group">
+                <a href="tel:1-800-555-MEGA" className="flex items-center gap-3 group">
                     <Phone className="h-5 w-5 text-primary" />
-                    <span className="text-foreground group-hover:text-primary transition-colors">829 205 606</span>
+                    <span className="text-foreground group-hover:text-primary transition-colors">1-800-555-MEGA</span>
                 </a>
             </div>
             <p className="mt-6 text-xs text-muted-foreground">
-                Estamos en vivo 24/7. ¡Llámanos para dedicatorias y saludos!
+                ¡Llámanos en vivo para saludos y para participar en nuestros concursos!
             </p>
         </div>
       </div>

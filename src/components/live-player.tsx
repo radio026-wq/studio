@@ -61,7 +61,7 @@ export default function LivePlayer() {
   };
 
   return (
-    <Card className="overflow-hidden shadow-lg bg-card">
+    <Card className="overflow-hidden shadow-lg bg-card border-primary/50">
       <CardContent className="flex flex-col items-center justify-center gap-6 p-6 sm:flex-row">
         <div className="flex items-center justify-center w-24 h-24 rounded-full bg-primary/10 flex-shrink-0">
             <Radio className={`h-12 w-12 text-primary ${isPlaying ? 'animate-pulse' : ''}`} />
@@ -70,23 +70,23 @@ export default function LivePlayer() {
         <div className="flex flex-1 flex-col gap-3 w-full">
             <div className="flex justify-between items-center">
                 <div className="flex flex-col">
-                    <h3 className="font-bold text-lg font-headline">Sonando Ahora</h3>
-                    <p className="text-sm text-muted-foreground">Vibras Mañaneras con DJ Leon</p>
+                    <h3 className="font-bold text-lg font-headline uppercase">Sonando Ahora</h3>
+                    <p className="text-sm text-muted-foreground">El Vacilón de la Mañana</p>
                 </div>
-                <Badge variant="outline" className="border-accent text-accent animate-pulse">
+                <Badge variant="outline" className="border-destructive text-destructive animate-pulse bg-destructive/10">
                     EN VIVO
                 </Badge>
             </div>
           
             <div className="flex items-center gap-4">
-              <Button onClick={togglePlay} variant="ghost" size="icon" className="rounded-full bg-primary/10 hover:bg-primary/20">
-                {isPlaying ? <Pause className="h-6 w-6 text-primary" /> : <Play className="h-6 w-6 text-primary fill-primary" />}
+              <Button onClick={togglePlay} variant="ghost" size="icon" className="rounded-full bg-primary hover:bg-primary/90">
+                {isPlaying ? <Pause className="h-6 w-6 text-primary-foreground" /> : <Play className="h-6 w-6 text-primary-foreground fill-primary-foreground" />}
                 <span className="sr-only">{isPlaying ? 'Pausar' : 'Reproducir'}</span>
               </Button>
               <div className="text-sm font-mono text-muted-foreground w-12">{currentTime}</div>
               <div className="flex-1 bg-muted rounded-full h-2 overflow-hidden relative">
                 <div 
-                    className="bg-accent h-full"
+                    className="bg-primary h-full"
                     style={{ width: isPlaying ? '100%' : '0%', transition: isPlaying ? 'width 3600s linear' : 'none' }}
                 ></div>
               </div>

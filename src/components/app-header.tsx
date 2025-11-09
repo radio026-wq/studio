@@ -8,8 +8,8 @@ export default function AppHeader() {
         <div className="mr-4 flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Radio className="h-6 w-6 text-primary" />
-            <span className="font-black sm:inline-block font-headline">
-              026 Radio en Línea
+            <span className="font-black sm:inline-block font-headline uppercase text-lg">
+              La Mega 97.9
             </span>
           </Link>
         </div>
