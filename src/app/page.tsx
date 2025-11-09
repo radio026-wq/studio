@@ -3,6 +3,8 @@ import LivePlayer from '@/components/live-player';
 import ContentSchedule from '@/components/content-schedule';
 import HighlightGenerator from '@/components/highlight-generator';
 import ContactSection from '@/components/contact-section';
+import PromoBanner from '@/components/promo-banner';
+import AdSection from '@/components/ad-section';
 
 export default function Home() {
   return (
@@ -10,6 +12,7 @@ export default function Home() {
       <AppHeader />
       <main className="flex-1 px-4 py-8 md:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12">
+          <PromoBanner />
           <section id="live-player" className="grid scroll-mt-20 gap-4">
             <h2 className="text-3xl font-black tracking-tight text-foreground font-headline">Live Stream</h2>
             <LivePlayer />
@@ -26,6 +29,10 @@ export default function Home() {
               <HighlightGenerator />
             </section>
           </div>
+
+          <section id="advertisement" className="scroll-mt-20">
+            <AdSection />
+          </section>
 
           <section id="contact" className="scroll-mt-20">
             <h2 className="mb-4 text-3xl font-black tracking-tight text-foreground font-headline">Contact Us</h2>
