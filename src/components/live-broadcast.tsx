@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
 
 export default function LiveBroadcast() {
   const [isBroadcasting, setIsBroadcasting] = useState(false);
@@ -27,8 +28,8 @@ export default function LiveBroadcast() {
           setHasCameraPermission(false);
           toast({
             variant: "destructive",
-            title: "Acceso a la Cámara Denegado",
-            description: "Por favor, habilita los permisos de cámara y micrófono en tu navegador para transmitir.",
+            title: "Camera Access Denied",
+            description: "Please enable camera and microphone permissions in your browser to broadcast.",
           });
         }
       } else {
@@ -51,15 +52,15 @@ export default function LiveBroadcast() {
     if (!hasCameraPermission) {
         toast({
             variant: "destructive",
-            title: "Cámara no disponible",
-            description: "No se puede iniciar la transmisión sin acceso a la cámara.",
+            title: "Camera not available",
+            description: "Cannot start broadcast without camera access.",
           });
         return;
     }
     setIsBroadcasting(!isBroadcasting);
     toast({
-        title: isBroadcasting ? "Transmisión Detenida" : "¡Estás en vivo!",
-        description: isBroadcasting ? "Tu transmisión ha finalizado." : "¡Tu audiencia ahora puede verte!",
+        title: isBroadcasting ? "Broadcast Stopped" : "You are live!",
+        description: isBroadcasting ? "Your broadcast has ended." : "Your audience can now see you!",
     });
   };
   
@@ -68,10 +69,10 @@ export default function LiveBroadcast() {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Camera className="text-primary" />
-          <span>Estudio de Transmisión</span>
+          <span>Broadcast Studio</span>
         </CardTitle>
         <CardDescription>
-          Inicia una transmisión de video en vivo para tu audiencia. Necesitarás permisos de cámara y micrófono.
+          Start a live video broadcast for your audience. You'll need camera and microphone permissions.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -80,13 +81,13 @@ export default function LiveBroadcast() {
             {hasCameraPermission === false && (
                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/80">
                     <VideoOff className="w-12 h-12 text-muted-foreground" />
-                    <p className="mt-2 text-muted-foreground">La cámara no está disponible</p>
+                    <p className="mt-2 text-muted-foreground">Camera is not available</p>
                 </div>
             )}
             {isBroadcasting && (
                 <div className="absolute top-4 left-4 flex items-center gap-2">
                     <Badge variant="destructive" className="animate-pulse">
-                        EN VIVO
+                        LIVE
                     </Badge>
                 </div>
             )}
@@ -94,9 +95,9 @@ export default function LiveBroadcast() {
         
         {hasCameraPermission === false && (
             <Alert variant="destructive">
-              <AlertTitle>Se Requiere Acceso a la Cámara</AlertTitle>
+              <AlertTitle>Camera Access Required</AlertTitle>
               <AlertDescription>
-                Por favor, permite el acceso a la cámara y al micrófono en tu navegador para usar esta función.
+                Please allow camera and microphone access in your browser to use this feature.
               </AlertDescription>
             </Alert>
         )}
@@ -104,19 +105,16 @@ export default function LiveBroadcast() {
         <div className="flex flex-col sm:flex-row items-center gap-4">
             <Button onClick={toggleBroadcast} disabled={hasCameraPermission === undefined || hasCameraPermission === false} className="w-full sm:w-auto" size="lg">
                 {isBroadcasting ? <VideoOff className="mr-2"/> : <Video className="mr-2" />}
-                {isBroadcasting ? "Detener Transmisión" : "Iniciar Transmisión"}
+                {isBroadcasting ? "Stop Broadcast" : "Start Broadcast"}
             </Button>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Camera className="w-5 h-5 text-green-500" />
-                <span>Cámara {hasCameraPermission ? 'Activada' : 'Desactivada'}</span>
+                <span>Camera {hasCameraPermission ? 'On' : 'Off'}</span>
                 <Mic className="w-5 h-5 text-green-500" />
-                <span>Micrófono Activado</span>
+                <span>Mic On</span>
             </div>
         </div>
       </CardContent>
     </Card>
   );
 }
-
-// Add new component - live-broadcast.tsx
-import { Badge } from "@/components/ui/badge";

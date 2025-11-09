@@ -14,13 +14,13 @@ export default function PromoBanner() {
         className="brightness-50"
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-        <h2 className="text-4xl md:text-6xl font-black text-white drop-shadow-md mb-4 font-headline uppercase">
-          La Mega 102.6 FM
+        <h2 className="text-4xl md:text-6xl font-bold text-white drop-shadow-md mb-4">
+          Radio Station
         </h2>
-        <p className="text-lg md:text-xl text-primary drop-shadow-md mb-6 max-w-2xl font-bold">
-          En línea desde La Romana, RD
+        <p className="text-lg md:text-xl text-primary-foreground/90 drop-shadow-md mb-6 max-w-2xl">
+          Your favorite station
         </p>
-        <Button size="lg" variant="secondary">Escucha Ahora</Button>
+        <Button size="lg" variant="secondary">Listen Now</Button>
       </div>
     </section>
   );

@@ -13,11 +13,11 @@ export async function createHighlightsAction(prevState: ActionState, formData: F
   const audioFile = formData.get('audioFile') as File | null;
 
   if (!audioFile || audioFile.size === 0) {
-    return { message: '', error: 'Se requiere un archivo de audio.' };
+    return { message: '', error: 'An audio file is required.' };
   }
   
   if (!audioFile.type.startsWith('audio/')) {
-    return { message: '', error: 'Tipo de archivo no válido. Por favor, sube un archivo de audio.' };
+    return { message: '', error: 'Invalid file type. Please upload an audio file.' };
   }
 
   try {
@@ -28,14 +28,14 @@ export async function createHighlightsAction(prevState: ActionState, formData: F
     const result = await generateAudioHighlights({ audioDataUri });
     
     if (result.highlights && result.highlights.length > 0) {
-        return { message: 'Destacados generados con éxito.', highlights: result.highlights };
+        return { message: 'Highlights generated successfully.', highlights: result.highlights };
     } else {
-        return { message: '', error: 'No se pudieron generar destacados de este audio.' };
+        return { message: '', error: 'Could not generate highlights from this audio.' };
     }
 
   } catch (error) {
-    console.error('La generación de destacados falló:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Ocurrió un error desconocido.';
-    return { message: '', error: `No se pudieron generar los destacados. Por favor, intenta con un archivo diferente.`};
+    console.error('Highlight generation failed:', error);
+    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
+    return { message: '', error: `Could not generate highlights. Please try a different file.`};
   }
 }

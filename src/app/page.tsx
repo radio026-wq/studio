@@ -14,18 +14,18 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-12">
           <PromoBanner />
           <section id="live-player" className="grid scroll-mt-20 gap-4">
-            <h2 className="text-3xl font-black tracking-tight text-foreground font-headline uppercase">Transmisión en Vivo</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">Live Stream</h2>
             <LivePlayer />
           </section>
 
           <section id="live-broadcast" className="grid scroll-mt-20 gap-4">
-            <h2 className="text-3xl font-black tracking-tight text-foreground font-headline uppercase">Realizar Transmisión</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">Go Live</h2>
             <LiveBroadcast />
           </section>
           
           <div className="grid gap-12 lg:grid-cols-5">
             <section id="highlights" className="lg:col-span-5 scroll-mt-20">
-              <h2 className="mb-4 text-3xl font-black tracking-tight text-foreground font-headline uppercase">Destacados con IA</h2>
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground">AI Highlights</h2>
               <HighlightGenerator />
             </section>
           </div>
@@ -35,13 +35,13 @@ export default function Home() {
           </section>
 
           <section id="contact" className="scroll-mt-20">
-            <h2 className="mb-4 text-3xl font-black tracking-tight text-foreground font-headline uppercase">Contáctanos</h2>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground">Contact Us</h2>
             <ContactSection />
           </section>
         </div>
       </main>
       <footer className="py-6 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} La Mega 102.6 FM. Todos los derechos reservados.
+        © {new Date().getFullYear()} Radio Station. All rights reserved.
       </footer>
     </div>
   );

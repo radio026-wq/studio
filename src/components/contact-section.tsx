@@ -12,9 +12,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
-  name: z.string().min(2, "El nombre debe tener al menos 2 caracteres."),
-  email: z.string().email("Por favor, introduce una dirección de correo electrónico válida."),
-  message: z.string().min(10, "El mensaje debe tener al menos 10 caracteres."),
+  name: z.string().min(2, "Name must be at least 2 characters."),
+  email: z.string().email("Please enter a valid email address."),
+  message: z.string().min(10, "Message must be at least 10 characters."),
 });
 
 export default function ContactSection() {
@@ -32,8 +32,8 @@ export default function ContactSection() {
     function onSubmit(values: z.infer<typeof formSchema>) {
         console.log(values);
         toast({
-            title: "¡Mensaje Enviado!",
-            description: "Gracias por contactarnos. Te responderemos pronto.",
+            title: "Message Sent!",
+            description: "Thanks for reaching out. We'll get back to you soon.",
         });
         form.reset();
     }
@@ -43,43 +43,43 @@ export default function ContactSection() {
       <div className="grid md:grid-cols-2">
         <div className="p-6">
             <CardHeader className="p-0 mb-6">
-                <CardTitle className="text-2xl font-bold font-headline uppercase">Ponte en Contacto</CardTitle>
+                <CardTitle className="text-2xl font-bold">Get in Touch</CardTitle>
                 <CardDescription>
-                    ¿Tienes alguna pregunta o una petición de canción? ¡Escríbenos!
+                    Have a question or a song request? Drop us a line!
                 </CardDescription>
             </CardHeader>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                     <FormField control={form.control} name="name" render={({ field }) => (
-                        <FormItem><FormLabel>Nombre</FormLabel><FormControl><Input placeholder="Tu Nombre" {...field} /></FormControl><FormMessage /></FormItem>
+                        <FormItem><FormLabel>Name</FormLabel><FormControl><Input placeholder="Your Name" {...field} /></FormControl><FormMessage /></FormItem>
                     )} />
                     <FormField control={form.control} name="email" render={({ field }) => (
-                        <FormItem><FormLabel>Correo Electrónico</FormLabel><FormControl><Input placeholder="tu@email.com" {...field} /></FormControl><FormMessage /></FormItem>
+                        <FormItem><FormLabel>Email</FormLabel><FormControl><Input placeholder="you@email.com" {...field} /></FormControl><FormMessage /></FormItem>
                     )} />
                     <FormField control={form.control} name="message" render={({ field }) => (
-                        <FormItem><FormLabel>Mensaje</FormLabel><FormControl><Textarea placeholder="Tu mensaje..." {...field} /></FormControl><FormMessage /></FormItem>
+                        <FormItem><FormLabel>Message</FormLabel><FormControl><Textarea placeholder="Your message..." {...field} /></FormControl><FormMessage /></FormItem>
                     )} />
                     <Button type="submit">
                         <Send className="mr-2 h-4 w-4" />
-                        Enviar Mensaje
+                        Send Message
                     </Button>
                 </form>
             </Form>
         </div>
         <div className="p-6 bg-muted/50 md:rounded-r-lg border-l">
-            <h3 className="text-xl font-bold mb-4 font-headline uppercase">Información de Contacto</h3>
+            <h3 className="text-xl font-bold mb-4">Contact Information</h3>
             <div className="space-y-4 text-sm">
-                <a href="mailto:contacto@lamega.com" className="flex items-center gap-3 group">
+                <a href="mailto:contact@radio.com" className="flex items-center gap-3 group">
                     <Mail className="h-5 w-5 text-primary" />
-                    <span className="text-foreground group-hover:text-primary transition-colors">contacto@lamega.com</span>
+                    <span className="text-foreground group-hover:text-primary transition-colors">contact@radio.com</span>
                 </a>
-                <a href="tel:1-800-555-MEGA" className="flex items-center gap-3 group">
+                <a href="tel:1-800-555-RADIO" className="flex items-center gap-3 group">
                     <Phone className="h-5 w-5 text-primary" />
-                    <span className="text-foreground group-hover:text-primary transition-colors">1-800-555-MEGA</span>
+                    <span className="text-foreground group-hover:text-primary transition-colors">1-800-555-RADIO</span>
                 </a>
             </div>
             <p className="mt-6 text-xs text-muted-foreground">
-                ¡Llámanos en vivo para saludos y para participar en nuestros concursos!
+                Call us live for shout-outs and to participate in our contests!
             </p>
         </div>
       </div>
