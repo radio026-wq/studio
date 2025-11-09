@@ -4,6 +4,7 @@ import HighlightGenerator from '@/components/highlight-generator';
 import ContactSection from '@/components/contact-section';
 import PromoBanner from '@/components/promo-banner';
 import AdSection from '@/components/ad-section';
+import LiveBroadcast from '@/components/live-broadcast';
 
 export default function Home() {
   return (
@@ -15,6 +16,11 @@ export default function Home() {
           <section id="live-player" className="grid scroll-mt-20 gap-4">
             <h2 className="text-3xl font-black tracking-tight text-foreground font-headline">Transmisión en Vivo</h2>
             <LivePlayer />
+          </section>
+
+          <section id="live-broadcast" className="grid scroll-mt-20 gap-4">
+            <h2 className="text-3xl font-black tracking-tight text-foreground font-headline">Realizar Transmisión</h2>
+            <LiveBroadcast />
           </section>
           
           <div className="grid gap-12 lg:grid-cols-5">
