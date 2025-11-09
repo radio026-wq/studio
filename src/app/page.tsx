@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </main>
       <footer className="py-6 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} La Mega 97.9 FM. Todos los derechos reservados.
+        © {new Date().getFullYear()} La Mega 102.6 FM. Todos los derechos reservados.
       </footer>
     </div>
   );

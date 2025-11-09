@@ -9,7 +9,7 @@ export default function AppHeader() {
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Radio className="h-6 w-6 text-primary" />
             <span className="font-black sm:inline-block font-headline uppercase text-lg">
-              La Mega 97.9
+              La Mega 102.6
             </span>
           </Link>
         </div>

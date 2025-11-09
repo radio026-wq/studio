@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'La Mega 97.9 FM',
+  title: 'La Mega 102.6 FM',
   description: 'La estación número uno de música urbana y más.',
 };
 
