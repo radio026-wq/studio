@@ -1,6 +1,5 @@
 import AppHeader from '@/components/app-header';
 import LivePlayer from '@/components/live-player';
-import ContentSchedule from '@/components/content-schedule';
 import HighlightGenerator from '@/components/highlight-generator';
 import ContactSection from '@/components/contact-section';
 import PromoBanner from '@/components/promo-banner';
@@ -19,12 +18,7 @@ export default function Home() {
           </section>
           
           <div className="grid gap-12 lg:grid-cols-5">
-            <section id="schedule" className="lg:col-span-3 scroll-mt-20">
-              <h2 className="mb-4 text-3xl font-black tracking-tight text-foreground font-headline">Content Schedule</h2>
-              <ContentSchedule />
-            </section>
-            
-            <section id="highlights" className="lg:col-span-2 scroll-mt-20">
+            <section id="highlights" className="lg:col-span-5 scroll-mt-20">
               <h2 className="mb-4 text-3xl font-black tracking-tight text-foreground font-headline">AI Highlights</h2>
               <HighlightGenerator />
             </section>
