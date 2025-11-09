@@ -9,7 +9,7 @@ export default function AppHeader() {
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Radio className="h-6 w-6 text-primary" />
             <span className="font-black sm:inline-block font-headline">
-              026 Online Radio
+              026 Radio en Línea
             </span>
           </Link>
         </div>

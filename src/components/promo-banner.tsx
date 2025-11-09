@@ -15,12 +15,12 @@ export default function PromoBanner() {
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
         <h2 className="text-3xl md:text-5xl font-black text-white drop-shadow-md mb-4 font-headline">
-          New Show Coming Soon!
+          ¡Nuevo Programa Próximamente!
         </h2>
         <p className="text-lg md:text-xl text-primary-foreground/90 drop-shadow-md mb-6 max-w-2xl">
-          Get ready for "The Midnight Hour" with DJ Alex, bringing you the best electronic beats every Friday night.
+          Prepárate para "La Hora de Medianoche" con DJ Alex, trayéndote los mejores ritmos electrónicos cada viernes por la noche.
         </p>
-        <Button size="lg">Learn More</Button>
+        <Button size="lg">Saber Más</Button>
       </div>
     </section>
   );

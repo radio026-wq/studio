@@ -70,18 +70,18 @@ export default function LivePlayer() {
         <div className="flex flex-1 flex-col gap-3 w-full">
             <div className="flex justify-between items-center">
                 <div className="flex flex-col">
-                    <h3 className="font-bold text-lg font-headline">Now Playing</h3>
-                    <p className="text-sm text-muted-foreground">Morning Vibes with DJ Leon</p>
+                    <h3 className="font-bold text-lg font-headline">Sonando Ahora</h3>
+                    <p className="text-sm text-muted-foreground">Vibras Mañaneras con DJ Leon</p>
                 </div>
                 <Badge variant="outline" className="border-accent text-accent animate-pulse">
-                    LIVE
+                    EN VIVO
                 </Badge>
             </div>
           
             <div className="flex items-center gap-4">
               <Button onClick={togglePlay} variant="ghost" size="icon" className="rounded-full bg-primary/10 hover:bg-primary/20">
                 {isPlaying ? <Pause className="h-6 w-6 text-primary" /> : <Play className="h-6 w-6 text-primary fill-primary" />}
-                <span className="sr-only">{isPlaying ? 'Pause' : 'Play'}</span>
+                <span className="sr-only">{isPlaying ? 'Pausar' : 'Reproducir'}</span>
               </Button>
               <div className="text-sm font-mono text-muted-foreground w-12">{currentTime}</div>
               <div className="flex-1 bg-muted rounded-full h-2 overflow-hidden relative">
@@ -92,7 +92,7 @@ export default function LivePlayer() {
               </div>
               <div className="flex items-center gap-2 w-[120px]">
                 <Button onClick={toggleMute} variant="ghost" size="icon" className="rounded-full">
-                    <span className="sr-only">{isMuted ? 'Unmute' : 'Mute'}</span>
+                    <span className="sr-only">{isMuted ? 'Quitar Silencio' : 'Silenciar'}</span>
                   {isMuted || volume === 0 ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
                 </Button>
                 <Slider
@@ -100,7 +100,7 @@ export default function LivePlayer() {
                   onValueChange={handleVolumeChange}
                   max={1}
                   step={0.05}
-                  aria-label="Volume control"
+                  aria-label="Control de volumen"
                 />
               </div>
             </div>
