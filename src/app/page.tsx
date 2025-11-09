@@ -3,6 +3,7 @@ import LivePlayer from '@/components/live-player';
 import ContactSection from '@/components/contact-section';
 import PromoBanner from '@/components/promo-banner';
 import AdSection from '@/components/ad-section';
+import StreamingLinks from '@/components/streaming-links';
 
 export default function Home() {
   return (
@@ -14,6 +15,11 @@ export default function Home() {
           <section id="live-player" className="grid scroll-mt-20 gap-4">
             <h2 className="text-3xl font-bold tracking-tight text-foreground">Escuchar en Vivo</h2>
             <LivePlayer />
+          </section>
+
+          <section id="streaming" className="grid scroll-mt-20 gap-4">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">Transmitir en Vivo</h2>
+            <StreamingLinks />
           </section>
           
           <section id="advertisement" className="scroll-mt-20">
