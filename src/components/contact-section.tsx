@@ -69,13 +69,13 @@ export default function ContactSection() {
         <div className="p-6 bg-muted/50 md:rounded-r-lg border-l">
             <h3 className="text-xl font-bold mb-4">Información de Contacto</h3>
             <div className="space-y-4 text-sm">
-                <a href="mailto:contacto@radio.com" className="flex items-center gap-3 group">
+                <a href="mailto:dleon14@hotmail.com" className="flex items-center gap-3 group">
                     <Mail className="h-5 w-5 text-primary" />
-                    <span className="text-foreground group-hover:text-primary transition-colors">contacto@1075fm.com</span>
+                    <span className="text-foreground group-hover:text-primary transition-colors">dleon14@hotmail.com</span>
                 </a>
-                <a href="tel:1-809-555-RADIO" className="flex items-center gap-3 group">
+                <a href="tel:829-205-1606" className="flex items-center gap-3 group">
                     <Phone className="h-5 w-5 text-primary" />
-                    <span className="text-foreground group-hover:text-primary transition-colors">1-809-555-RADIO</span>
+                    <span className="text-foreground group-hover:text-primary transition-colors">829-205-1606</span>
                 </a>
             </div>
             <p className="mt-6 text-xs text-muted-foreground">
