@@ -6,6 +6,7 @@ import AdSection from '@/components/ad-section';
 import StreamingLinks from '@/components/streaming-links';
 import SongPlaylist from '@/components/song-playlist';
 import ListenerOfTheWeek from '@/components/listener-of-the-week';
+import RaffleSection from '@/components/raffle-section';
 
 export default function Home() {
   return (
@@ -39,9 +40,14 @@ export default function Home() {
             <StreamingLinks />
           </section>
           
-          <section id="advertisement" className="scroll-mt-20">
-            <AdSection />
-          </section>
+          <div className="grid gap-12 md:grid-cols-2">
+            <section id="advertisement" className="scroll-mt-20">
+              <AdSection />
+            </section>
+            <section id="raffle" className="scroll-mt-20">
+              <RaffleSection />
+            </section>
+          </div>
 
           <section id="contact" className="scroll-mt-20">
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground">Contacto</h2>
