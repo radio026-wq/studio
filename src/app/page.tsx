@@ -6,7 +6,7 @@ import AdSection from '@/components/ad-section';
 import StreamingLinks from '@/components/streaming-links';
 import SongPlaylist from '@/components/song-playlist';
 import ListenerOfTheWeek from '@/components/listener-of-the-week';
-import RaffleSection from '@/components/raffle-section';
+import HighlightGenerator from '@/components/highlight-generator';
 
 export default function Home() {
   return (
@@ -44,8 +44,8 @@ export default function Home() {
             <section id="advertisement" className="scroll-mt-20">
               <AdSection />
             </section>
-            <section id="raffle" className="scroll-mt-20">
-              <RaffleSection />
+            <section id="highlights" className="scroll-mt-20">
+               <HighlightGenerator />
             </section>
           </div>
 
