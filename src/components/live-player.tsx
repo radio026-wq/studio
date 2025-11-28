@@ -27,7 +27,7 @@ const Deck = ({ isPlaying, title, artist }: { isPlaying: boolean, title: string,
 
 export default function LivePlayer() {
   const [isPlaying, setIsPlaying] = useState(true);
-  const [volume, setVolume] = useState(0.7);
+  const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(true);
   const [crossfade, setCrossfade] = useState(0.5);
   const audioRef = useRef<HTMLAudioElement>(null);
