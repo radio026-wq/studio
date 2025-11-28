@@ -4,7 +4,6 @@ import ContactSection from '@/components/contact-section';
 import PromoBanner from '@/components/promo-banner';
 import AdSection from '@/components/ad-section';
 import StreamingLinks from '@/components/streaming-links';
-import SongPlaylist from '@/components/song-playlist';
 import ListenerOfTheWeek from '@/components/listener-of-the-week';
 import HighlightGenerator from '@/components/highlight-generator';
 
@@ -20,20 +19,10 @@ export default function Home() {
             <LivePlayer />
           </section>
 
-          <div className="grid gap-12 lg:grid-cols-5">
-            <div className="lg:col-span-3">
-              <section id="playlist" className="grid scroll-mt-20 gap-4">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground">Éxitos del Momento</h2>
-                <SongPlaylist />
-              </section>
-            </div>
-            <div className="lg:col-span-2">
-              <section id="listener-of-the-week" className="grid scroll-mt-20 gap-4">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground">Oyente de la Semana</h2>
-                <ListenerOfTheWeek />
-              </section>
-            </div>
-          </div>
+          <section id="listener-of-the-week" className="grid scroll-mt-20 gap-4">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">Oyente de la Semana</h2>
+            <ListenerOfTheWeek />
+          </section>
 
           <section id="streaming" className="grid scroll-mt-20 gap-4">
             <h2 className="text-3xl font-bold tracking-tight text-foreground">Transmitir en Vivo</h2>
