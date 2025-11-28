@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Play, Pause, Volume2, VolumeX, Rewind, FastForward, Repeat } from "lucide-react";
+import { Play, Pause, Volume2, VolumeX, Rewind, FastForward } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
@@ -30,6 +30,24 @@ export default function LivePlayer() {
   const [volume, setVolume] = useState(0.7);
   const [isMuted, setIsMuted] = useState(false);
   const [crossfade, setCrossfade] = useState(0.5);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const streamUrl = "https://stream.zeno.fm/usmxxub5rm0uv";
+
+  useEffect(() => {
+    if (audioRef.current) {
+        if (isPlaying) {
+            audioRef.current.play().catch(error => console.error("Error playing audio:", error));
+        } else {
+            audioRef.current.pause();
+        }
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+        audioRef.current.volume = isMuted ? 0 : volume;
+    }
+  }, [volume, isMuted]);
 
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
@@ -46,12 +64,12 @@ export default function LivePlayer() {
   };
 
   const toggleMute = () => {
-    if (isMuted) {
+    const currentlyMuted = isMuted || volume === 0;
+    if (currentlyMuted) {
         setIsMuted(false);
-        setVolume(0.5);
+        setVolume(0.5); 
     } else {
         setIsMuted(true);
-        setVolume(0);
     }
   };
   
@@ -62,6 +80,7 @@ export default function LivePlayer() {
   return (
     <Card className="overflow-hidden shadow-lg bg-neutral-900 border-neutral-800 text-neutral-200">
       <CardContent className="p-4 sm:p-6">
+        <audio ref={audioRef} src={streamUrl} preload="none" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             {/* Deck A */}
             <div style={{ opacity: Math.min(1, (1 - crossfade) * 2) }}>
@@ -70,7 +89,7 @@ export default function LivePlayer() {
 
             {/* Mixer Controls */}
             <div className="flex flex-col items-center gap-4 bg-neutral-800/50 p-4 rounded-lg">
-                <Badge variant="destructive" className="animate-pulse">
+                <Badge variant="destructive" className={`${isPlaying ? 'animate-pulse' : ''}`}>
                     EN VIVO
                 </Badge>
                 <div className="flex items-center gap-2">
