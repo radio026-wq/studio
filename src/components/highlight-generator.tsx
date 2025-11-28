@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState, useFormStatus } from 'react-dom';
 import { useEffect, useRef } from 'react';
 import { createHighlightsAction } from '@/app/actions';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -27,7 +27,7 @@ function SubmitButton() {
 }
 
 export default function HighlightGenerator() {
-  const [state, formAction] = useFormState(createHighlightsAction, initialState);
+  const [state, formAction] = useActionState(createHighlightsAction, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
