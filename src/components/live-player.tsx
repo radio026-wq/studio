@@ -26,22 +26,23 @@ const Deck = ({ isPlaying, title, artist }: { isPlaying: boolean, title: string,
 
 
 export default function LivePlayer() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [volume, setVolume] = useState(0.7);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const [crossfade, setCrossfade] = useState(0.5);
   const audioRef = useRef<HTMLAudioElement>(null);
   const streamUrl = "https://stream.zeno.fm/usmxxub5rm0uv";
 
   useEffect(() => {
     if (audioRef.current) {
+        audioRef.current.muted = isMuted;
         if (isPlaying) {
             audioRef.current.play().catch(error => console.error("Error playing audio:", error));
         } else {
             audioRef.current.pause();
         }
     }
-  }, [isPlaying]);
+  }, [isPlaying, isMuted]);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -64,10 +65,10 @@ export default function LivePlayer() {
   };
 
   const toggleMute = () => {
-    const currentlyMuted = isMuted || volume === 0;
+    const currentlyMuted = isMuted;
     if (currentlyMuted) {
         setIsMuted(false);
-        setVolume(0.5); 
+        if (volume === 0) setVolume(0.5);
     } else {
         setIsMuted(true);
     }
@@ -80,7 +81,7 @@ export default function LivePlayer() {
   return (
     <Card className="overflow-hidden shadow-lg bg-neutral-900 border-neutral-800 text-neutral-200">
       <CardContent className="p-4 sm:p-6">
-        <audio ref={audioRef} src={streamUrl} preload="none" />
+        <audio ref={audioRef} src={streamUrl} autoPlay muted playsInline preload="auto" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             {/* Deck A */}
             <div style={{ opacity: Math.min(1, (1 - crossfade) * 2) }}>
@@ -105,7 +106,7 @@ export default function LivePlayer() {
                     <div className="flex items-center gap-2 w-full">
                         <Button onClick={toggleMute} variant="ghost" size="icon" className="rounded-full text-muted-foreground hover:text-primary">
                             <span className="sr-only">{isMuted ? 'Quitar Silencio' : 'Silenciar'}</span>
-                          {isMuted || volume === 0 ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                          {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
                         </Button>
                         <Slider
                           value={[isMuted ? 0 : volume]}
