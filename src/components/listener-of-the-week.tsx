@@ -8,7 +8,7 @@ export default function ListenerOfTheWeek() {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
             <Award className="text-primary"/>
-            <span>Ana de la Cruz</span>
+            <span>Javiernel Ruvio</span>
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col items-center text-center gap-4">
