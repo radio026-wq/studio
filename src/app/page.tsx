@@ -7,6 +7,46 @@ import StreamingLinks from '@/components/streaming-links';
 import ListenerOfTheWeek from '@/components/listener-of-the-week';
 import HighlightGenerator from '@/components/highlight-generator';
 
+const ads = [
+  {
+    title: 'A&A Security Sistem',
+    description: 'Sistemas de seguridad y cámaras de vigilancia para tu hogar o negocio. Tranquilidad garantizada con la mejor tecnología.',
+    contact: {
+      phone: '829-205-1606',
+      email: 'dleon14@hotmail.com',
+    },
+    image: {
+      src: 'https://picsum.photos/seed/security/600/400',
+      aiHint: 'security camera',
+    },
+    callToAction: 'Cotiza tu Sistema',
+  },
+  {
+    title: 'Colmado Alfonso',
+    description: 'Los víveres más frescos y las mejores ofertas de La Romana. ¡Visítanos y comprueba la calidad y el servicio!',
+    contact: {
+      phone: '809-555-1234',
+    },
+    image: {
+      src: 'https://picsum.photos/seed/grocery/600/400',
+      aiHint: 'grocery store',
+    },
+    callToAction: 'Ver Ofertas',
+  },
+    {
+    title: 'Moto Repuesto Cendy',
+    description: 'Todo lo que necesitas para tu motocicleta. Piezas, accesorios y el mejor servicio de la ciudad.',
+    contact: {
+      phone: '809-555-5678',
+    },
+    image: {
+      src: 'https://picsum.photos/seed/motorcycle/600/400',
+      aiHint: 'motorcycle parts',
+    },
+    callToAction: 'Contáctanos',
+  }
+];
+
 export default function Home() {
   return (
     <div className="flex min-h-screen w-full flex-col bg-background">
@@ -19,24 +59,29 @@ export default function Home() {
             <LivePlayer />
           </section>
 
-          <section id="listener-of-the-week" className="grid scroll-mt-20 gap-4">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">Oyente de la Semana</h2>
-            <ListenerOfTheWeek />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <section id="listener-of-the-week" className="grid scroll-mt-20 gap-4">
+              <h2 className="text-3xl font-bold tracking-tight text-foreground">Oyente de la Semana</h2>
+              <ListenerOfTheWeek />
+            </section>
+            <section id="highlights" className="scroll-mt-20">
+               <HighlightGenerator />
+            </section>
+          </div>
+
+          <section id="advertisements" className="grid scroll-mt-20 gap-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">Patrocinadores</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <AdSection {...ads[0]} />
+              <AdSection {...ads[1]} />
+            </div>
+             <AdSection {...ads[2]} layout="horizontal" />
           </section>
 
           <section id="streaming" className="grid scroll-mt-20 gap-4">
             <h2 className="text-3xl font-bold tracking-tight text-foreground">Transmitir en Vivo</h2>
             <StreamingLinks />
           </section>
-          
-          <div className="grid gap-12 md:grid-cols-2">
-            <section id="advertisement" className="scroll-mt-20">
-              <AdSection />
-            </section>
-            <section id="highlights" className="scroll-mt-20">
-               <HighlightGenerator />
-            </section>
-          </div>
 
           <section id="contact" className="scroll-mt-20">
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground">Contacto</h2>
