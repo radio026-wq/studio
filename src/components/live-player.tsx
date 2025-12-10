@@ -26,23 +26,22 @@ const Deck = ({ isPlaying, title, artist }: { isPlaying: boolean, title: string,
 
 
 export default function LivePlayer() {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(1);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [crossfade, setCrossfade] = useState(0.5);
   const audioRef = useRef<HTMLAudioElement>(null);
   const streamUrl = "https://stream.zeno.fm/usmxxub5rm0uv";
 
   useEffect(() => {
     if (audioRef.current) {
-        audioRef.current.muted = isMuted;
         if (isPlaying) {
             audioRef.current.play().catch(error => console.error("Error playing audio:", error));
         } else {
             audioRef.current.pause();
         }
     }
-  }, [isPlaying, isMuted]);
+  }, [isPlaying]);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -65,13 +64,7 @@ export default function LivePlayer() {
   };
 
   const toggleMute = () => {
-    const currentlyMuted = isMuted;
-    if (currentlyMuted) {
-        setIsMuted(false);
-        if (volume === 0) setVolume(0.5);
-    } else {
-        setIsMuted(true);
-    }
+    setIsMuted(!isMuted);
   };
   
   const handleCrossfadeChange = (value: number[]) => {
@@ -81,7 +74,7 @@ export default function LivePlayer() {
   return (
     <Card className="overflow-hidden shadow-lg bg-neutral-900 border-neutral-800 text-neutral-200">
       <CardContent className="p-4 sm:p-6">
-        <audio ref={audioRef} src={streamUrl} autoPlay muted playsInline preload="auto" />
+        <audio ref={audioRef} src={streamUrl} playsInline preload="auto" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             {/* Deck A */}
             <div style={{ opacity: Math.min(1, (1 - crossfade) * 2) }}>
